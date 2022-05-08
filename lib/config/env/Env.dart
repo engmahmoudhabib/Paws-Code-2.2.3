@@ -39,7 +39,14 @@ class MyHttpOverrides extends HttpOverrides {
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   // If you're going to use other Firebase services in the background, such as Firestore,
   // make sure you call `initializeApp` before using other Firebase services.
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+  apiKey: "XXX",
+  appId: "XXX",
+  messagingSenderId: "XXX",
+  projectId: "klj87hgkjgh",
+),
+  );
 
   var params = <String, dynamic>{
     'id': 'klj87hgkjgh',
@@ -107,7 +114,14 @@ class Env {
   void initApp() async {
     WidgetsFlutterBinding.ensureInitialized();
     await EasyLocalization.ensureInitialized();
-
+ await Firebase.initializeApp(
+    options: const FirebaseOptions(
+  apiKey: "XXX",
+  appId: "XXX",
+  messagingSenderId: "XXX",
+  projectId: "klj87hgkjgh",
+),
+  );
     ErrorWidget.builder = (FlutterErrorDetails details) {
       if (EnvType.STAGING == environmentType) {
         //  return ErrorWidget(details.exception);
@@ -167,7 +181,6 @@ class Env {
     // Set the background messaging handler early on, as a named top-level function
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
-    if (!kIsWeb) {
       channel = const AndroidNotificationChannel(
         'high_importance_channel', // id
         'High Importance Notifications', // title
@@ -248,7 +261,7 @@ class Env {
         badge: true,
         sound: true,
       );
-    }
+    
 
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       RemoteNotification? notification = message.notification;
