@@ -50,6 +50,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.2"
+  bazel_worker:
+    dependency: transitive
+    description:
+      name: bazel_worker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   blur:
     dependency: "direct main"
     description:
@@ -85,6 +92,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.0"
+  build_modules:
+    dependency: transitive
+    description:
+      name: build_modules
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.2"
   build_resolvers:
     dependency: transitive
     description:
@@ -106,6 +120,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.1.0"
+  build_web_compilers:
+    dependency: "direct dev"
+    description:
+      name: build_web_compilers
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.0"
   built_collection:
     dependency: transitive
     description:
@@ -1134,6 +1155,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.2.3"
+  protobuf:
+    dependency: transitive
+    description:
+      name: protobuf
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1"
   provider:
     dependency: transitive
     description:
@@ -1176,6 +1204,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.27.3"
+  scratch_space:
+    dependency: transitive
+    description:
+      name: scratch_space
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   select_dialog:
     dependency: "direct main"
     description:
@@ -1293,6 +1328,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
+  source_maps:
+    dependency: transitive
+    description:
+      name: source_maps
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.10.10"
   source_span:
     dependency: transitive
     description:
