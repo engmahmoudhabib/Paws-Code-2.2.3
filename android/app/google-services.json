@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "842407869993",
+    "project_id": "paws-9f5fc",
+    "storage_bucket": "paws-9f5fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842407869993:android:1f2cd13f67a06c728fe638",
+        "android_client_info": {
+          "package_name": "thepaws.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "842407869993-0otqs3kid0js9pam6bbklktah4e5cp7h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "thepaws.app",
+            "certificate_hash": "ca094a0c4236551032418602f0f9921457b0863f"
+          }
+        },
+        {
+          "client_id": "842407869993-gdskr1lo7knofk5hq49btt9ill4eadbq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "thepaws.app",
+            "certificate_hash": "41f3fba1e6f9d2923e521af6ba848dcccb4fcd4f"
+          }
+        },
+        {
+          "client_id": "842407869993-lj9gi3eon8b1d7urg0te4eili7tcaqo2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "thepaws.app",
+            "certificate_hash": "2ce1b3148456ff66f37dea62936ad536fb39baf5"
+          }
+        },
+        {
+          "client_id": "842407869993-1iht8e1kmn4k29hf3ja0av5koavr9714.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtLay3QCzmI63UFSP733W-IXYpCSquUoY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "842407869993-1iht8e1kmn4k29hf3ja0av5koavr9714.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
