@@ -10,10 +10,12 @@ import 'package:flutter_app/config/AppFactory.dart';
 import 'package:flutter_app/gen/assets.gen.dart';
 import 'package:flutter_app/gen/fonts.gen.dart';
 import 'package:flutter_app/models/api/CartAction.dart';
+import 'package:flutter_app/providers/AnimalsProvider.dart';
 import 'package:flutter_app/providers/CartActionsProvider.dart';
 import 'package:flutter_app/tools/responsive_widgets/responsive_widgets.dart';
 import 'package:flutter_app/ui/screen/BaseStateWidget.dart';
 import 'package:flutter_app/ui/screen/cart/CartScreen.dart';
+import 'package:flutter_app/ui/screen/home/screens/animals/AnimalsDetailsScreen.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
@@ -72,6 +74,7 @@ class AppComponentState extends BaseStatefulState<AppComponent> {
       });
     }
   }
+  
 
   @override
   void initState() {
@@ -102,73 +105,84 @@ class AppComponentState extends BaseStatefulState<AppComponent> {
   @override
   Widget build(BuildContext context) {
     return ProviderScope(
-        child: KeyboardDismissOnTap(
-            child: MaterialApp(
-      title: Env.value.appName,
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      builder: (context, child) {
-        return Stack(
-          children: [
-            child ?? SizedBox(),
-            Consumer(
-              builder: (context, watch, child) {
-                final response = watch(cartActionsProvider);
-                return response.when(idle: () {
-                  return Container();
-                }, loading: () {
-                  return SizedBox();
-                }, data: (data) {
-                  return (data as CartAction).shouldShow()
-                      ? Positioned(
-                          bottom: 50.h,
-                          left: 20.w,
-                          child: Material(
-                              color: Colors.transparent,
-                              child: FloatingActionButton(
-                                onPressed: () {
-                                  GetIt.I
-                                      .get<ApplicationCore>()
-                                      .goTo(CartScreen.generatePath());
-                                },
-                                child: Badge(
-                                    badgeContent: TextResponsive(
-                                        data.data?.cart?.totalItems ?? '0'),
-                                    badgeColor: Colors.white,
-                                    child: Icon(CupertinoIcons.cart)),
-                                backgroundColor:
-                                    AppFactory.getColor('primary', toString()),
-                              )),
-                        )
-                      : SizedBox();
-                }, error: (e) {
-                  return SizedBox();
-                });
+      child: KeyboardDismissOnTap(
+        child: Consumer(
+          builder: (context, watch, _) {
+            var idState = watch(idOfAnimal).state; 
+            return MaterialApp(
+              title: Env.value.appName,
+              localizationsDelegates: context.localizationDelegates,
+              supportedLocales: context.supportedLocales,
+              locale: context.locale,
+              routes: {
+                '/animalDetails='+idState: (context) => AnimalsDetailsScreen(idState)
               },
-            )
-          ],
-        );
-      },
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        textTheme: TextTheme(
-                bodyText1: TextStyle(),
-                bodyText2: TextStyle(),
-                headline6: TextStyle(),
-                caption: TextStyle())
-            .apply(
-          bodyColor: AppFactory.getColor('primary', toString()),
-          displayColor: Colors.blue,
-          //  fontFamily: FontFamily.araHamahAlislam
+              builder: (context, child) {
+                return Stack(
+                  children: [
+                    child ?? SizedBox(),
+                    Consumer(
+                      builder: (context, watch, child) {
+                        final response = watch(cartActionsProvider);
+                        return response.when(idle: () {
+                          return Container();
+                        }, loading: () {
+                          return SizedBox();
+                        }, data: (data) {
+                          return (data as CartAction).shouldShow()
+                              ? Positioned(
+                                  bottom: 50.h,
+                                  left: 20.w,
+                                  child: Material(
+                                      color: Colors.transparent,
+                                      child: FloatingActionButton(
+                                        onPressed: () {
+                                          GetIt.I
+                                              .get<ApplicationCore>()
+                                              .goTo(CartScreen.generatePath());
+                                        },
+                                        child: Badge(
+                                            badgeContent: TextResponsive(
+                                                data.data?.cart?.totalItems ??
+                                                    '0'),
+                                            badgeColor: Colors.white,
+                                            child: Icon(CupertinoIcons.cart)),
+                                        backgroundColor: AppFactory.getColor(
+                                            'primary', toString()),
+                                      )),
+                                )
+                              : SizedBox();
+                        }, error: (e) {
+                          return SizedBox();
+                        });
+                      },
+                    )
+                  ],
+                );
+              },
+              debugShowCheckedModeBanner: false,
+              theme: ThemeData(
+                primarySwatch: Colors.blue,
+                textTheme: TextTheme(
+                        bodyText1: TextStyle(),
+                        bodyText2: TextStyle(),
+                        headline6: TextStyle(),
+                        caption: TextStyle())
+                    .apply(
+                  bodyColor: AppFactory.getColor('primary', toString()),
+                  displayColor: Colors.blue,
+                  //  fontFamily: FontFamily.araHamahAlislam
+                ),
+                brightness: Brightness.dark,
+                primaryColor: AppFactory.getColor('primary', toString()),
+                accentColor: Colors.cyan[600],
+              ),
+              navigatorKey: navigatorKey,
+              onGenerateRoute: GetIt.instance<FluroRouter>().generator,
+            );
+          },
         ),
-        brightness: Brightness.dark,
-        primaryColor: AppFactory.getColor('primary', toString()),
-        accentColor: Colors.cyan[600],
       ),
-      navigatorKey: navigatorKey,
-      onGenerateRoute: GetIt.instance<FluroRouter>().generator,
-    )));
+    );
   }
 }

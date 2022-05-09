@@ -21,6 +21,7 @@ import 'package:flutter_app/ui/screen/dogs/OwnershipChangeScreen.dart';
 import 'package:flutter_app/ui/screen/home/HomeScreen.dart';
 import 'package:flutter_app/ui/screen/home/articles/ArticalsScreen.dart';
 import 'package:flutter_app/ui/screen/home/articles/ArticleDetailsScreen.dart';
+import 'package:flutter_app/ui/screen/home/screens/animals/AnimalsDetailsScreen.dart';
 import 'package:flutter_app/ui/screen/info/AboutScreen.dart';
 import 'package:flutter_app/ui/screen/info/InfoScreen.dart';
 import 'package:flutter_app/ui/screen/offers/AddOfferScreen.dart';
@@ -112,6 +113,8 @@ var offersHandler =
     Handler(handlerFunc: (context, Map<String, dynamic> params) {
   return OffersScreen();
 });
+
+
 
 var articlesHandler =
     Handler(handlerFunc: (context, Map<String, dynamic> params) {
@@ -257,7 +260,7 @@ class AppRoutes {
     router.define(OTPScreen.PATH, handler: otpHandler);
     router.define(ResetPasswordScreen.PATH, handler: resetPasswordHandler);
     router.define(EditAccountScreen.PATH, handler: editAccountHandler);
-    router.define(RatingResultScreen.PATH, handler: ratingResultHandler);
+    router.define(RatingResultScreen.PATH , handler: ratingResultHandler);
 
     //home
     router.define(HomeScreen.PATH, handler: homeHandler);

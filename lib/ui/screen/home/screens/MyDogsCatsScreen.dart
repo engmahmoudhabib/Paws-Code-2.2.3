@@ -77,6 +77,7 @@ class _MyDogsCatsScreenState extends BaseStatefulState<MyDogsCatsScreen> {
     _controller = TabController(length: 2, vsync: this);
 
     super.initState();
+    
   }
 
   @override

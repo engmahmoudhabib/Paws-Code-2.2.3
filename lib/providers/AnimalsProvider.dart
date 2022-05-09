@@ -190,3 +190,6 @@ class CustomStateNotifier extends StateNotifier<ResultState> {
         });
   }
 }
+
+
+var idOfAnimal = StateProvider((_) => '0');

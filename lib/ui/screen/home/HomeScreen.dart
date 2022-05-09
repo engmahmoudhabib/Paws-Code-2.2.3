@@ -39,7 +39,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:fullscreen/fullscreen.dart';
 import 'package:get_storage/get_storage.dart';
-
 import 'screens/NotificationsScreen.dart';
 
 // ignore: must_be_immutable

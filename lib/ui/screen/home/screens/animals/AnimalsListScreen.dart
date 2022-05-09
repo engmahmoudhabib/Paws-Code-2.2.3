@@ -176,7 +176,7 @@ class _AnimalsListScreenState extends BaseStatefulState<AnimalsListScreen> {
                   widget.showServiceDetails.value
                       ? Expanded(
                           child: AnimalsDetailsScreen(
-                          selectedService?.id?.toString() ?? '',
+                         selectedService?.id?.toString() ?? '',
                           onBack: () {
                             widget.showServiceDetails.value = false;
                           },
@@ -295,13 +295,16 @@ class _AnimalsListScreenState extends BaseStatefulState<AnimalsListScreen> {
                                                                                 !(data.data![index].reactions?.isFavorited ?? false));
                                                                           }
                                                                         });
-                                                              else
-                                                                goTo(
+                                                              else{
+                                                               
+                                                                  goTo(
                                                                     LoginScreen
                                                                         .generatePath(),
                                                                     transition:
                                                                         TransitionType
                                                                             .inFromTop);
+                                                              }
+                                                               
                                                             },
                                                           ),
                                                           actions: <Widget>[],

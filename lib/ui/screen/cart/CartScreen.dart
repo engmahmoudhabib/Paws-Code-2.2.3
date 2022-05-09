@@ -42,6 +42,8 @@ import 'package:fullscreen/fullscreen.dart';
 import 'package:get_it/get_it.dart';
 import 'package:get_storage/get_storage.dart';
 
+
+
 class CartScreen extends StatefulWidget {
   static const String PATH = '/cart-screen';
 
@@ -78,6 +80,8 @@ class _CartScreenState extends BaseStatefulState<CartScreen> {
               : null;
     });
     super.initState();
+   
+    
   }
 
   TextEditingController? promoCode;

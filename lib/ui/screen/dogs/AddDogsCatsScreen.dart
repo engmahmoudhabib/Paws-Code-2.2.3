@@ -53,6 +53,9 @@ import 'package:form_field_validator/form_field_validator.dart';
 import 'package:fullscreen/fullscreen.dart';
 import 'package:get_storage/get_storage.dart';
 
+
+
+
 class AddDogsCatsScreen extends StatefulWidget {
   static const String PATH = '/dogs-cat-add';
   final String? id;
@@ -88,6 +91,7 @@ class _AddDogsCatsScreenState extends BaseStatefulState<AddDogsCatsScreen> {
   ValueNotifier<List<DocumentModel>> documents = ValueNotifier([]);
   bool firstCall = false;
   AuthResponse? authResponse;
+
 
   @override
   void initState() {

@@ -23,14 +23,12 @@ import 'package:flutter_svg/svg.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'AnimalDetailsScreen2.dart';
-
-class AnimalsDetailsScreen extends StatefulWidget {
+class AnimalsDetailsScreen2 extends StatefulWidget {
   static const String PATH = '/animal-details';
   final VoidCallback? onBack;
   final String id;
 
-  AnimalsDetailsScreen(this.id, {this.onBack});
+  AnimalsDetailsScreen2(this.id, {this.onBack});
 
   static String generatePath() {
     Map<String, dynamic> parameters = {};
@@ -39,11 +37,11 @@ class AnimalsDetailsScreen extends StatefulWidget {
   }
 
   @override
-  _AnimalsDetailsScreenState createState() => _AnimalsDetailsScreenState();
+  _AnimalsDetailsScreen2State createState() => _AnimalsDetailsScreen2State();
 }
 
-class _AnimalsDetailsScreenState
-    extends BaseStatefulState<AnimalsDetailsScreen> {
+class _AnimalsDetailsScreen2State
+    extends BaseStatefulState<AnimalsDetailsScreen2> {
   ValueNotifier<bool> isDog = ValueNotifier(false);
   ValueNotifier<bool> isHybrid = ValueNotifier(false);
   ValueNotifier<List<Color>> colors = ValueNotifier([]);
@@ -70,10 +68,7 @@ class _AnimalsDetailsScreenState
     settings['is_mobile'] = false;
 
     super.initState();
-    Future.delayed(Duration(milliseconds: 500 ) ,  () {
-context.read(idOfAnimal).state =  widget.id;
-    });
-      
+   
   }
 
   @override
@@ -99,7 +94,6 @@ context.read(idOfAnimal).state =  widget.id;
   @override
   Widget build(BuildContext context) {
     //final arg = ModalRoute.of(context)!.settings.arguments as String;
-    //
     preBuild(context);
     return handledWidget(AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle(
@@ -199,43 +193,19 @@ context.read(idOfAnimal).state =  widget.id;
                                           data.data?.status?.id == 'sale' ||
                                                   data.data?.status?.id ==
                                                       'marriage'
-                                              ? Consumer(
-                                                  builder: (context, watch, _) {
-                                                  var idState =
-                                                      watch(idOfAnimal).state;
-                                                  print(
-                                                      '>>>>>>>>>>>>>>>>>>>>>>');
-
-
-
-
-                                                  print(idState);
-                                                  print(
-                                                      '>>>>>>>>>>>>>>>>>>>>>>');
-                                                  return InkWell(
-                                                    onTap: () =>
-                                                        Navigator.pushNamed(
-                                                            context,
-                                                            '/animalDetails=' +
-                                                                idState,
-                                                            arguments:
-                                                                AnimalsDetailsScreen2(
-                                                                    idState)),
-                                                    child: Flexible(
-                                                      child: TextResponsive(
-                                                        'السعر: ${data.data?.offer?.price?.formatted ?? ''}',
-                                                        style: TextStyle(
-                                                          fontSize: 12,
-                                                          fontFamily: 'roboto',
-                                                          color: const Color(
-                                                              0xff3EC62C),
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.right,
+                                              ? Flexible(
+                                                    child: TextResponsive(
+                                                      'السعر: ${data.data?.offer?.price?.formatted ?? ''}',
+                                                      style: TextStyle(
+                                                        fontSize: 12,
+                                                        fontFamily: 'roboto',
+                                                        color: const Color(
+                                                            0xff3EC62C),
                                                       ),
+                                                      textAlign:
+                                                          TextAlign.right,
                                                     ),
-                                                  );
-                                                })
+                                                  )
                                               : SizedBox()
                                         ],
                                       ),

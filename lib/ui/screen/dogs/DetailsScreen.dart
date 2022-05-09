@@ -53,6 +53,7 @@ import 'package:fullscreen/fullscreen.dart';
 import 'package:get_it/get_it.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:share/share.dart';
+import 'dart:js' as js;
 
 import 'AddDogsCatsScreen.dart';
 import 'OwnershipChangeScreen.dart';
@@ -89,6 +90,8 @@ class _DetailsScreenState extends BaseStatefulState<DetailsScreen> {
         () => context.read(remindersProvider(widget.id).notifier).load());
 
     super.initState();
+    
+
   }
 
   @override
